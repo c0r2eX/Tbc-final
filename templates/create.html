@@ -1,0 +1,54 @@
+{% include "base.html" %}
+<head>
+<title>Upload meme</title>
+
+</head>
+    <style>
+      body {
+        background-color: rgb(28, 125, 182);
+        overflow: hidden;
+      }
+      .form-box {
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 15px;
+      }
+      .create-btn {
+        background-color: #6a4c9c;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 12px;
+        transition: background-color 0.3s ease;
+      }
+      .create-btn:hover {
+        background-color: #7b56a6;
+      }
+      .create-btn:active {
+        background-color: #9b6cc6;
+      }
+    </style>
+  </head>
+  <body>
+    {% include "navbar.html" %}
+    
+    <div class="bg-transparent opacity-60 d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-4 shadow form-box" style="width: 100%; max-width: 500px">
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+
+            <div class="row">
+                
+                {{ form.text(class="form-control mt-2", placeholder=form.text.label.text  ) }}
+            </div>
+            <div class="row">
+                {{ form.img(class="form-control mt-2",  placeholder=form.img.label.text) }}
+            </div>
+            <div class="row">
+                {{ form.upload(class="create-btn btn w-100 form-control mt-2") }}
+            </div>
+         </div>
+         </div>
+        </form>
+  </body>
+</html>
